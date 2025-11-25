@@ -1,14 +1,19 @@
 package com.ecomm.ProductCatalogService.controllers;
 
 import com.ecomm.ProductCatalogService.models.Product;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ProductController {
 
-    public Product getProductDetails(Long id) {
+    @GetMapping("/products/{id}")
+    public Product getProductDetails(@PathVariable Long id) {
         Product product = new Product();
         product.setId(id);
+        product.setName("IPhone 17");
         return product;
     }
+
 }
